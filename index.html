@@ -3,20 +3,50 @@
 	<head lang=en>
 		<meta charset="UTF-8">
 		<title>Medieval Trade  | Lostkingdom.net</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://bootswatch.com/slate/bootstrap.min.css" >
 	</head>
 	<body>
-		<div ng-controller="TradegoodsController as tgCntrl">
-			<span>There are currently {{ tgCntrl.goodsCount }} goods in the database.
-			<div class="bar">
-				<input type="text" class="search" ng-model="searchString" placeholder="Enter your search terms" />
+		<nav class="navbar navbar-default" >
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#/">Lost Kingdom Medieval Knowledge base</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav" bs-active-link>
+						<li ><a href="#/">Home <span class="sr-only">(current)</span></a></li>
+						<li><a href="#/tradegoods">Trade goods</a></li>
+					</ul>
+					<form class="navbar-form navbar-right">
+						<div class="form-group">
+							<input type="text" class="form-control"  ng-model="searchString" placeholder="Trade good search">
+						</div>
+					</form>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+		<div class="container">
+			<div class="content"  ng-view>
+
 			</div>
-			<ul class="unstyled">
-				<li ng-repeat="good in tgCntrl.goods|orderBy:'name' | searchFor:searchString ">
-					{{ good.name }} in {{(tgCntrl.categories | filter : {id: good.categoryid })[0].name }}
-				</li>
-			</ul>
+			<div class="footer"></div>
 		</div>
+
 	</body>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </html>

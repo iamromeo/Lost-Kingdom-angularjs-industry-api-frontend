@@ -1,0 +1,9 @@
+<div ng-controller="TradegoodsController as tgCntrl">
+	<span>There are currently {{ tgCntrl.goodsCount }} goods in the database.
+
+	<ul class="unstyled">
+		<li ng-repeat="good in tgCntrl.goods|orderBy:'name' | searchFor:searchString ">
+			{{ good.name }} in {{(tgCntrl.categories | filter : {id: good.categoryid })[0].name }}
+		</li>
+	</ul>
+</div>
