@@ -1,4 +1,4 @@
-var app = angular.module('LostKingdomAPIApp', ["ngRoute"])
+var app = angular.module('LostKingdomAPIApp', ["ngRoute","mgcrea.ngStrap"])
 
 app.config(function($routeProvider) {
   $routeProvider
